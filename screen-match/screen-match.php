@@ -63,3 +63,4 @@ var_dump(json_decode('{"nome":"Thor: Ragnarok","ano":2021,"nota":7.8,"genero":"s
 $filmeComoStringJson = json_encode($filme);
 
 file_put_contents(__DIR__. '/filme.json', $filmeComoStringJson); 
+
