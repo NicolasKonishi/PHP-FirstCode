@@ -1,6 +1,6 @@
 <?php
 
-function exibeMensagemLancamento ($ano) {
+function exibeMensagemLancamento (int $ano): void{
     if ($ano > 2022) {
     echo "Esse filme é um lançamento\n";
 } elseif($ano > 2020 && $ano <= 2022) {
@@ -9,7 +9,7 @@ function exibeMensagemLancamento ($ano) {
     echo "Esse filme não é um lançamento\n";
 }
 }
-function incluidoNoPlano($planoPrime, $anolancamento ){
+function incluidoNoPlano(bool $planoPrime, int $anolancamento): bool{
     return $planoPrime || $anolancamento < 2020;
 }
 
@@ -55,3 +55,8 @@ $filme = [
 
 
 echo $filme["ano"];
+
+// var_dump($notas);
+// sort($notas);
+// var_dump($notas);
+// echo min($notas); -> manipulações de arrays
