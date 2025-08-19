@@ -56,7 +56,14 @@ $filme = [
 
 echo $filme["ano"];
 
+// manipulações de arrays = 
 // var_dump($notas);
 // sort($notas);
 // var_dump($notas);
-// echo min($notas); -> manipulações de arrays
+// echo min($notas); 
+
+// var_dump($filme ['nome']);
+$posicaoDoisPontos = strpos($filme['nome'], ':');
+var_dump($posicaoDoisPontos); //position de um caracter dentro de uma string
+
+var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
