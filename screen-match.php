@@ -1,36 +1,54 @@
 <?php
-// echo "Bem-vindo(a) ao screen match\n";
 
-$nomeFilme = "Top Gun - Maverick"; //string
-$nomeFilme = "Thor: Ragnarok";
-$nomeFilme = "Se beber não case";
-// $anoLancamento = 2020; //int
-$anoLancamento = $argv[1] ?? 2022; //argumento para entrada de dados //?? op de coalescência nula (caso não exita x -> op=y)
-$somaDeNotas =  8 + 3 + 2 + 2 +12;
-$notaFilme = $somaDeNotas/5; // float
-$planoPrime = true; //boolean
-
-$incluidoPrime = $planoPrime || $anoLancamento < 2019;
-
-echo "nome do filme: ". $nomeFilme . "\n";
-echo "nota do filme:  $notaFilme\n ";
-echo "ano do filme:  $anoLancamento\n ";
-
-// trabalhando com decisões
-if ($anoLancamento > 2024) {
-    echo("esse filme é novo!\n");
-}else if ($anoLancamento >2020 && $anoLancamento <= 2024){
-    echo"esse filme ainda é novo\n";
-}else{
-    echo "esse filme não é um lançamento\n";
+function exibeMensagemLancamento ($ano) {
+    if ($ano > 2022) {
+    echo "Esse filme é um lançamento\n";
+} elseif($ano > 2020 && $ano <= 2022) {
+    echo "Esse filme ainda é novo\n";
+} else {
+    echo "Esse filme não é um lançamento\n";
+}
 }
 
-//Código omitido
+echo "Bem-vindo(a) ao screen match!\n";
 
-$genero = match ($nomeFilme){
+$nomeFilme = "Top Gun - Maverick";
+
+$anolancamento = 2022;
+
+$quantidadeDeNotas = $argc - 1;
+$notas = [];
+
+for ($contador = 1; $contador < $argc; $contador++) {
+    $notas[] = (float) $argv[$contador];
+}
+
+$notaFilme = array_sum($notas) / $quantidadeDeNotas;
+$planoPrime = true;
+
+$incluidoNoPlano = $planoPrime || $anolancamento < 2020;
+
+echo "Nome do filme: " . $nomeFilme . "\n";
+echo "Nota do filme: $notaFilme\n";
+echo "Ano de lançamento: $anolancamento\n";
+
+exibeMensagemLancamento($anolancamento);
+
+$genero = match ($nomeFilme) {
     "Top Gun - Maverick" => "ação",
-    "Thor: Ragnarok" => "super-heroi",
+    "Thor: Ragnarok" => "super-herói",
     "Se beber não case" => "comédia",
-    default => "genero desconhecido",
+    default => "gênero desconhecido",
 };
-echo $genero;
+
+echo "O gênero do filme é: $genero\n";
+
+$filme = [
+    "nome" => "Thor: Ragnarok",
+    "ano" => 2021,
+    "nota" => 7.8,
+    "genero" => "super-herói",
+];
+
+
+echo $filme["ano"];
