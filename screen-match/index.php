@@ -1,12 +1,12 @@
 <?php
 
-require __DIR__ . "/src/funcoes.php"; //trás as funções que estão em outro arquivo para esse
+require __DIR__ . "/src/funcoes.php";
 
 echo "Bem-vindo(a) ao screen match!\n";
 
 $nomeFilme = "Top Gun - Maverick";
 
-$anolancamento = 2022;
+$anoLancamento = 2022;
 
 $quantidadeDeNotas = $argc - 1;
 $notas = [];
@@ -18,13 +18,13 @@ for ($contador = 1; $contador < $argc; $contador++) {
 $notaFilme = array_sum($notas) / $quantidadeDeNotas;
 $planoPrime = true;
 
-$incluidoNoPlano = incluidoNoPlano($planoPrime , $anolancamento) ;
+$incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento);
 
 echo "Nome do filme: " . $nomeFilme . "\n";
 echo "Nota do filme: $notaFilme\n";
-echo "Ano de lançamento: $anolancamento\n";
+echo "Ano de lançamento: $anoLancamento\n";
 
-exibeMensagemLancamento($anolancamento);
+exibeMensagemLancamento($anoLancamento);
 
 $genero = match ($nomeFilme) {
     "Top Gun - Maverick" => "ação",
@@ -36,30 +36,25 @@ $genero = match ($nomeFilme) {
 echo "O gênero do filme é: $genero\n";
 
 $filme = criaFilme(
-    nome: "Thor: Ragnarok", 
-    anolancamento: 2021, 
     nota: 7.8,
-    genero: "super-herói" );
-
+    genero: "super-herói",
+    anoLancamento: 2021,
+    nome: "Thor: Ragnarok",
+);
 
 echo $filme["ano"];
 
-// manipulações de arrays = 
-// var_dump($notas);
-// sort($notas);
-// var_dump($notas);
-// echo min($notas); 
+var_dump($notas);
+sort($notas);
+var_dump($notas);
+$menorNota = min($notas);
+var_dump($menorNota);
 
-// var_dump($filme ['nome']);
+var_dump($filme['nome']);
 $posicaoDoisPontos = strpos($filme['nome'], ':');
-var_dump($posicaoDoisPontos); //position de um caracter dentro de uma string
+var_dump($posicaoDoisPontos);
 
 var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
 
-
-var_dump(json_decode('{"nome":"Thor: Ragnarok","ano":2021,"nota":7.8,"genero":"super-her\u00f3i"}'));
-
 $filmeComoStringJson = json_encode($filme);
-
-file_put_contents(__DIR__. '/filme.json', $filmeComoStringJson); 
-
+file_put_contents(__DIR__ . '/filme.json', $filmeComoStringJson);
