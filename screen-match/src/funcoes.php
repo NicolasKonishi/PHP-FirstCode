@@ -13,3 +13,12 @@ function incluidoNoPlano(bool $planoPrime, int $anolancamento): bool{
     return $planoPrime || $anolancamento < 2020;
 }
 
+function criaFilme(string $nome, int $anolancamento, float $nota, string $genero){
+
+    return [
+        'nome' => $nome,
+        'ano' => $anolancamento,
+        'nota' => $nota,
+        'genero' => $genero
+    ];
+}
