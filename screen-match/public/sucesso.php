@@ -1,1 +1,1 @@
-<h1>Sucesso! Filme inserido.</h1>
+<h1>Sucesso! Filme <?php echo $_GET['filme']; ?> inserido.</h1>
